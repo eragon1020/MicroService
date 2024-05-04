@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { MongoClient } from "mongodb";
+import cors from "cors";
 
  export class Eliminar {
     constructor(port, mongoURI , collectionName , dbName) {
@@ -9,6 +10,7 @@ import { MongoClient } from "mongodb";
         this.port = port;
         this.mongoURI = mongoURI;
         this.app = express();
+        this.app.use(cors())
         this.app.use(bodyParser.urlencoded({ extended: true }));
         this.app.use(bodyParser.json());
 

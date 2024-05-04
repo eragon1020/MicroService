@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from 'body-parser';
 import { MongoClient, ObjectId } from "mongodb";
+import cors from "cors";
 
 
 export class Insertar {
@@ -10,6 +11,7 @@ export class Insertar {
         this.port = port;
         this.mongoURI = mongoURI;
         this.app = express();
+        this.app.use(cors())
         this.app.use(bodyParser.urlencoded({ extended: true }));
         this.app.use(bodyParser.json());
 
